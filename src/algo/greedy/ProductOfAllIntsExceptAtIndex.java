@@ -27,6 +27,7 @@ public class ProductOfAllIntsExceptAtIndex {
         int[] numbers = new int[] {1, 7, 3, 4};
         System.out.println(Arrays.toString(getProductsOfAllIntsExceptAtIndex1(numbers)));
         System.out.println(Arrays.toString(getProductsOfAllIntsExceptAtIndex2(numbers)));
+        System.out.println(Arrays.toString(getProductsOfAllIntsExceptAtIndex3(numbers)));
     }
 
     //Solution 1
@@ -89,6 +90,25 @@ public class ProductOfAllIntsExceptAtIndex {
             productSoFar *= array[i];
         }
 
+        return products;
+    }
+
+    //Solution 3 using division operator
+    //O(n) time and O(n) space where n is length of input array
+    public static int[] getProductsOfAllIntsExceptAtIndex3(int[] array) {
+        if (array.length < 2) {
+            throw new IllegalArgumentException("Getting the product of numbers at other indices requires at least 2 numbers");
+        }
+
+        int[] products = new int[array.length];
+        int product = 1;
+        for(int i = 0; i < array.length; i++) {
+            product *= array[i];
+        }
+
+        for(int i = 0; i < array.length; i++) {
+            products[i] = product / array[i];
+        }
         return products;
     }
 

@@ -25,6 +25,8 @@ import java.util.Set;
  * String x = "aab"
  * Output: 3 (aab, aba, baa)
  *
+ * Time complexity: O(n)
+ *
  */
 public class NoOfDistinctPermutations {
 
